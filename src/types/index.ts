@@ -38,6 +38,7 @@ export type IUpdatePost = {
   file: File[];
   location?: string;
   tags?: string;
+  oldImageId: string;
 };
 
 export type IUser = {

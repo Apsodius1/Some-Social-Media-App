@@ -10,8 +10,6 @@ const PostCard = ({ post }: PostCardProps) => {
   const { user } = useUserContext();
   if (!post.creator) return;
 
-  console.log(post);
-
   return (
     <div className="post-card">
       <div className="flex-between">

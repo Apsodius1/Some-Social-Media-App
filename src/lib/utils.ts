@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function getTimeRelativeToNow(timestamp: string): string {
+export const getTimeRelativeToNow = (timestamp: string = ""): string => {
   const now = new Date();
   const postTime = new Date(timestamp);
   const diff = now.getTime() - postTime.getTime();
@@ -23,7 +23,7 @@ export function getTimeRelativeToNow(timestamp: string): string {
   } else {
     return `Just now`;
   }
-}
+};
 
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 

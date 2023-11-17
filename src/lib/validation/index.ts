@@ -21,6 +21,29 @@ export const PostValidation = z.object({
     .string()
     .min(5, { message: "Caption must contain at least 5 characters" })
     .max(2200),
+  file: z.custom<File[]>(
+    (files: File[] | unknown) => {
+      if (Array.isArray(files)) {
+        return files.length > 0 ? true : false;
+      }
+      return false;
+    },
+    {
+      message: "Please upload a file",
+    }
+  ),
+  location: z
+    .string()
+    .min(2, { message: "Location must contain at least 2 characters" })
+    .max(100),
+  tags: z.string(),
+});
+
+export const PostUpdateValidation = z.object({
+  caption: z
+    .string()
+    .min(5, { message: "Caption must contain at least 5 characters" })
+    .max(2200),
   file: z.custom<File[]>(),
   location: z
     .string()
